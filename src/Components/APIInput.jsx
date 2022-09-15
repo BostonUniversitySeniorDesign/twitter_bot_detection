@@ -1,5 +1,26 @@
-import React from "react";
-export default function APIInput({ props }) {
+import React, { Component, useState } from "react";
+
+export default function APIInput(props) {
+    const [twitterHandle, setTwitterHandle] = useState("");
+    const requestData = () => {
+        const options = {
+            method: "GET",
+            headers: {
+                "X-RapidAPI-Key":
+                    "676df54b3dmsh53c02a46eb496b5p17c4f4jsn876df78779fb",
+                "X-RapidAPI-Host": "peerreach.p.rapidapi.com",
+            },
+        };
+
+        const data = fetch(
+            `https://peerreach.p.rapidapi.com/user/lookup.json?screen_name=${twitterHandle}`,
+            options
+        )
+            .then((response) => response.json())
+            .then((response) => props.onAPISuccess(response))
+            .catch((err) => console.error(err));
+    };
+
     return (
         <div
             style={{
@@ -9,7 +30,12 @@ export default function APIInput({ props }) {
                 marginTop: "-15vh",
             }}
         >
-            <input type="text" style={inputStyle} placeholder="@example" />
+            <input
+                type="text"
+                style={inputStyle}
+                placeholder="ExampleTwitterHandle"
+                onChange={(event) => setTwitterHandle(event.target.value)}
+            />
             <button type="Submit" style={buttonStyle} onClick={requestData}>
                 Submit
             </button>
@@ -35,25 +61,3 @@ const buttonStyle = {
     border: "solid 2px #333",
     marginLeft: "1rem",
 };
-
-function requestData() {
-    const options = {
-        method: "GET",
-        headers: {
-            "X-RapidAPI-Key":
-                "676df54b3dmsh53c02a46eb496b5p17c4f4jsn876df78779fb",
-            "X-RapidAPI-Host": "peerreach.p.rapidapi.com",
-        },
-    };
-
-    const data = fetch(
-        "https://peerreach.p.rapidapi.com/user/lookup.json?screen_name=fredwilson",
-        options
-    )
-        .then((response) => response.json())
-        .then((response) => console.log(response))
-        .catch((err) => console.error(err));
-
-    console.log(data);
-    this.props.onAPISuccess(data);
-}

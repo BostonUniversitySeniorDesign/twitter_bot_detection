@@ -1,22 +1,31 @@
 import "./App.css";
 import APIInput from "./Components/APIInput";
 import Header from "./Components/Header";
+import Info from "./Components/Info";
+import { useState } from "react";
 
 function App() {
+    const [twitterData, setTwitterData] = useState(undefined);
+
     return (
         <div style={mainContainerStyle}>
             <Header></Header>
-            <APIInput onAPISuccess={showInfo} />
+            <APIInput
+                onAPISuccess={(data) => {
+                    setTwitterData(data);
+                }}
+            />
+            <Info item={twitterData}></Info>
         </div>
     );
 }
-
-function showInfo() {}
 
 const mainContainerStyle = {
     width: "100vw",
     height: "100vh",
     display: "flex",
+    flexDirection: "column",
+    textAlign: "center",
     justifyContent: "center",
     alignItems: "center",
     fontFamily: "monospace",
