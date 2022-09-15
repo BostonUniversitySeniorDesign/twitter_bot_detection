@@ -6,10 +6,12 @@ function App() {
     return (
         <div style={mainContainerStyle}>
             <Header></Header>
-            <APIInput />
+            <APIInput onAPISuccess={showInfo} />
         </div>
     );
 }
+
+function showInfo() {}
 
 const mainContainerStyle = {
     width: "100vw",
