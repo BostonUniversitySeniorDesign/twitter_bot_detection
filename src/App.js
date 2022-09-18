@@ -2,6 +2,8 @@ import "./App.css";
 import APIInput from "./Components/APIInput";
 import Header from "./Components/Header";
 import Info from "./Components/Info";
+import GoogleLogin from "./Components/GoogleLogin";
+import firebase from "./Firebase";
 import { useState } from "react";
 
 function App() {
@@ -10,6 +12,7 @@ function App() {
     return (
         <div style={mainContainerStyle}>
             <Header></Header>
+            <GoogleLogin />
             <APIInput
                 onAPISuccess={(data) => {
                     setTwitterData(data);
