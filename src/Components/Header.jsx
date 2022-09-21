@@ -1,8 +1,14 @@
 import React, { Component } from "react";
+import GoogleLogin from "./GoogleLogin";
 
 export default class Header extends Component {
     render() {
-        return <div style={headerStyle}>Twitter Bot Detector</div>;
+        return (
+            <div style={headerStyle}>
+                <h2 style={{ fontSize: "35px" }}>Twitter Bot Detector</h2>{" "}
+                <GoogleLogin />
+            </div>
+        );
     }
 }
 
@@ -16,4 +22,8 @@ const headerStyle = {
     left: 0,
     fontSize: "2.5rem",
     padding: "0 20px",
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
 };

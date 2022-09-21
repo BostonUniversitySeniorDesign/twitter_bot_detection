@@ -60,10 +60,33 @@ export default function GoogleLogin() {
     };
 
     return (
-        <div>
-            <h2>{name == null ? "" : `Welcome ${name}`}</h2>
-            <button onClick={login}>Login With Google</button>
-            <button onClick={logout}>Logout</button>
+        <div
+            style={{
+                marginRight: "50px",
+                display: "flex",
+                alignItems: "baseline",
+            }}
+        >
+            <h2 style={{ fontSize: "20px", marginRight: "10px" }}>
+                {name == null ? "" : `Welcome ${name}`}
+            </h2>
+            {name == null ? (
+                <button style={buttonStyle} onClick={login}>
+                    Login With Google
+                </button>
+            ) : (
+                <button style={buttonStyle} onClick={logout}>
+                    Logout
+                </button>
+            )}
         </div>
     );
 }
+
+const buttonStyle = {
+    background: "none",
+    border: "2px solid #222",
+    borderRadius: "6px",
+    height: "1.5rem",
+    fontSize: "1rem",
+};

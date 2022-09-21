@@ -12,7 +12,6 @@ function App() {
     return (
         <div style={mainContainerStyle}>
             <Header></Header>
-            <GoogleLogin />
             <APIInput
                 onAPISuccess={(data) => {
                     setTwitterData(data);
