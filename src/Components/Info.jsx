@@ -8,6 +8,7 @@ function Info({ item }) {
                     display: "flex",
                     alignItems: "baseline",
                     flexDirection: "column",
+                    alignItems: "center",
                     marginTop: "10px",
                     width: "30%",
                 }}

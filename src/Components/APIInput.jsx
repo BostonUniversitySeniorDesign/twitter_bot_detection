@@ -27,9 +27,10 @@ export default function APIInput(props) {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                marginTop: "-15vh",
+                // marginTop: "-15vh",
             }}
         >
+            <p style={{ fontSize: "1.25rem" }}>@</p>
             <input
                 type="text"
                 style={inputStyle}
@@ -50,6 +51,7 @@ const inputStyle = {
     outline: "none",
     border: "solid 2px #333",
     fontSize: "1.25rem",
+    background: "none",
 };
 
 const buttonStyle = {
@@ -58,6 +60,7 @@ const buttonStyle = {
     borderRadius: "6px",
     fontSize: "1.25rem",
     outline: "none",
-    border: "solid 2px #333",
     marginLeft: "1rem",
+    background: "none",
+    border: "2px solid #222",
 };

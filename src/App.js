@@ -2,7 +2,7 @@ import "./App.css";
 import APIInput from "./Components/APIInput";
 import Header from "./Components/Header";
 import Info from "./Components/Info";
-import GoogleLogin from "./Components/GoogleLogin";
+import Title from "./Components/Title";
 import firebase from "./Firebase";
 import { useState } from "react";
 
@@ -12,6 +12,7 @@ function App() {
     return (
         <div style={mainContainerStyle}>
             <Header></Header>
+            <Title></Title>
             <APIInput
                 onAPISuccess={(data) => {
                     setTwitterData(data);
@@ -32,6 +33,7 @@ const mainContainerStyle = {
     alignItems: "center",
     fontFamily: "monospace",
     boxSizing: "border-box",
+    background: "#E1E8ED",
 };
 
 export default App;
