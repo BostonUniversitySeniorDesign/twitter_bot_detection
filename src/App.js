@@ -3,6 +3,7 @@ import APIInput from "./Components/APIInput";
 import Header from "./Components/Header";
 import Info from "./Components/Info";
 import Title from "./Components/Title";
+import Timestamp from "./Components/Timestamp";
 import firebase from "./Firebase";
 import { useState } from "react";
 
@@ -19,6 +20,7 @@ function App() {
                 }}
             />
             <Info item={twitterData}></Info>
+            <Timestamp></Timestamp>
         </div>
     );
 }
